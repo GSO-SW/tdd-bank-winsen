@@ -2,7 +2,7 @@
 
 namespace Bank
 {
-    internal class Konto
+    public class Konto
     {
         private int guthaben;
 
@@ -14,9 +14,36 @@ namespace Bank
             }
         }
 
+        private int ktoNr;
+
+        public int KtoNr
+        {
+            get { return ktoNr; }
+        }
+
+        private string blz;
+
+        public string BLZ
+        {
+            get { return blz; }
+        }
+
         public Konto(int guthaben)
         {
             this.guthaben = guthaben;
+            
+        }
+
+        public Konto(int guthaben,int ktoNr,string blz)
+        {
+            this.guthaben = guthaben;
+            this.ktoNr = ktoNr;
+            this.blz = blz;
+        }
+
+        public void BuchhaltungCheck(int KtoNR, string blz)
+        {
+            
         }
 
         public void Einzahlen(int betrag)
