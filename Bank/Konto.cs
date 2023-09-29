@@ -5,6 +5,8 @@ namespace Bank
     public class Konto
     {
         private double guthaben;
+        private static int letztekontoNr = 0;   
+        private int kontoNr ;
 
         public double Guthaben
         {
@@ -15,8 +17,10 @@ namespace Bank
         }
 
         public Konto(double guthaben)
+
         {
-            if(guthaben < 0)
+            letztekontoNr++;
+            if (guthaben < 0)
             {
                 throw new ArgumentOutOfRangeException("Eröffnungsbetrag darf nicht negativ sein.");
             }
@@ -37,7 +41,15 @@ namespace Bank
             }
             else
             {
-                throw new ArgumentOutOfRangeException("Guthaben nicht ausreichend");
+                throw new("Guthaben nicht ausreichend");
+            }
+        }
+
+        public int KontoNr 
+        {
+            get
+            {
+                return kontoNr;
             }
         }
     }
