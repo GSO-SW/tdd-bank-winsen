@@ -20,6 +20,7 @@ namespace Bank
 
         {
             letztekontoNr++;
+            kontoNr = letztekontoNr;
             if (guthaben < 0)
             {
                 throw new ArgumentOutOfRangeException("Eröffnungsbetrag darf nicht negativ sein.");
