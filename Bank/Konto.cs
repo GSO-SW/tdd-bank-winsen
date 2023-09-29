@@ -1,12 +1,12 @@
-﻿using System;
+using System;
 
 namespace Bank
 {
     public class Konto
     {
-        private int guthaben;
+        private double guthaben;
 
-        public int Guthaben
+        public double Guthaben
         {
             get
             {
@@ -14,44 +14,22 @@ namespace Bank
             }
         }
 
-        private int ktoNr;
-
-        public int KtoNr
+        public Konto(double guthaben)
         {
-            get { return ktoNr; }
-        }
+            if(guthaben < 0)
+            {
+                throw new ArgumentOutOfRangeException("Eröffnungsbetrag darf nicht negativ sein.");
+            }
 
-        private string blz;
-
-        public string BLZ
-        {
-            get { return blz; }
-        }
-
-        public Konto(int guthaben)
-        {
             this.guthaben = guthaben;
-            
         }
 
-        public Konto(int guthaben,int ktoNr,string blz)
-        {
-            this.guthaben = guthaben;
-            this.ktoNr = ktoNr;
-            this.blz = blz;
-        }
-
-        public void BuchhaltungCheck(int KtoNR, string blz)
-        {
-            
-        }
-
-        public void Einzahlen(int betrag)
+        public void Einzahlen(double betrag)
         {
             guthaben += betrag;
         }
 
-        public void Auszahlen(int betrag)
+        public void Auszahlen(double betrag)
         {
             if (guthaben >= betrag)
             {
