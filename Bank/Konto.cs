@@ -14,6 +14,7 @@ namespace Bank
             }
         }
 
+
         public Konto(double guthaben)
         {
             if(guthaben < 0)

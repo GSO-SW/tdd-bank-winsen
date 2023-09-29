@@ -1,4 +1,6 @@
 using Bank;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace BankTests
 {
@@ -68,7 +70,7 @@ namespace BankTests
             double startbetrag = 0.0;
 
             // Act
-            Konto k = new Konto(startbetrag );
+            Konto k = new Konto(startbetrag);
 
             //Arrange
             Assert.IsTrue(k.KontoNr > 0);
@@ -82,9 +84,9 @@ namespace BankTests
             double startbetrag = 0.0;
 
             // Act
-            Konto k1 = new Konto(startbetrag );
-            Konto k2 = new Konto(startbetrag );
-            Konto k3 = new Konto(startbetrag );
+            Konto k1 = new Konto(startbetrag);
+            Konto k2 = new Konto(startbetrag);
+            Konto k3 = new Konto(startbetrag);
 
             // Assert
             Assert.IsTrue(k1.KontoNr > 0);
