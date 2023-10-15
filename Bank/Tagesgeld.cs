@@ -11,15 +11,20 @@ namespace Bank
         private Konto verrechnungskonto;
         private double guthaben;
         private double zinssatz;
-        private int verrechnungsKontoNr;
 
 
-        public Tagesgeld(Konto verrechnungskonto) 
+        public Tagesgeld(Konto verrechnungskonto)
         {
             this.verrechnungskonto = verrechnungskonto;
         }
 
 
+
+
+        public int VerrechnungsKontoNr
+        {
+            get { return verrechnungskonto.KontoNr; }
+        }
         public double Guthaben
         {
             get { return guthaben; }
@@ -34,29 +39,28 @@ namespace Bank
 
 
 
-        public int VerrechnungsKontoNr
-        {
-            get
-            {
-                return verrechnungsKontoNr;
-            }
-        }
-
         public Konto Verrechnungskonto
         {
             get { return verrechnungskonto;}
         }
 
+
+
+
+
         public void Einzahlen(double betrag)
         {
+            verrechnungskonto.Auszahlen(betrag);
             guthaben += betrag;
         }
 
 
         public void Auszahlen(double betrag)
         {
+            verrechnungskonto.Einzahlen(betrag);
             if (guthaben >= betrag)
             {
+                
                 guthaben -= betrag;
             }
             else
